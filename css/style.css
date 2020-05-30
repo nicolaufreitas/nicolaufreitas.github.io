@@ -75,7 +75,7 @@ nav{
 }
 
 .menu{
-	margin-bottom: 600px;
+	margin-bottom: 100vh;
 }
 
 nav ul{
@@ -145,4 +145,39 @@ footer{
 	margin-left: 8%;
 	margin-top: 150px;
 	background-color: rgba(0, 0, 0, 0.15);
+}
+
+.x100 {
+	width: 100px;
+	background-color: gray;
+	padding-top: 1px
+	padding-bottom:1px;
+}
+
+.x200 {
+	width: 200px;
+	background-color: gray;
+	padding-top: 1px
+	padding-bottom:1px;
+}
+
+.x300 {
+	width: 300px;
+	background-color: gray;
+	padding-top: 1px
+	padding-bottom:1px;
+}
+
+.x320 {
+	width: 320px;
+	background-color: gray;
+	padding-top: 1px
+	padding-bottom:1px;
+}
+
+.x400 {
+	width: 400px;
+	background-color: gray;
+	padding-top: 1px
+	padding-bottom:1px;
 }
