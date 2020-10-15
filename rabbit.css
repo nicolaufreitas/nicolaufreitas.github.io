@@ -1,0 +1,109 @@
+body{
+	--Anim:0.8s;
+}
+
+#svg{
+	width:150px;
+	height: auto;
+}
+
+#pata_del{
+	animation: patadel var(--Anim) linear infinite;
+	transform-origin: top;
+	transform-box:fill-box;
+}
+
+@keyframes patadel{
+	0%{transform: rotateZ(0deg);}
+	50%{transform: rotateZ(-20deg);}
+	100%{transform: rotateZ(0deg);}
+}
+
+#pie_del{
+	animation: pie var(--Anim) linear infinite;
+}
+
+@keyframes pie{
+	0%{transform: translateX(0);}
+	50%{transform: translateX(3.2px);}
+	100%{transform: translateX(0);}
+}
+
+#pata_tras{
+	animation: patatras var(--Anim) linear infinite;
+	transform-origin: bottom right;
+	transform-box:fill-box;
+}
+
+@keyframes patatras{
+	50%{transform: matrix(1.00,0.00,0.00,1.00,0,0);}
+	67%{transform: matrix(0.94,0.34,-0.34,0.94,-1.1,0);}
+	84%{transform:  matrix(0.98,0.17,-0.17,0.98,-0.55,-3);}
+	100%{transform:  matrix(1.00,0.00,0.00,1.00,0,0);}
+}
+
+#cuerpo{
+	animation: cuerpo var(--Anim) linear infinite;
+	transform-origin: center right;
+	transform-box:fill-box;
+}
+
+@keyframes cuerpo{
+	50%{transform: rotate(0);}
+	67%{transform: rotate(8deg);}
+	84%{transform:  rotate(12deg);}
+	100%{transform:  rotate(0);}
+}
+
+#cola{
+	animation: cola var(--Anim) linear infinite;
+	transform-origin: center right;
+	transform-box:fill-box;
+}
+
+@keyframes cola{
+	50%{transform: translateX(0) translateY(0);}
+	67%{transform: translateX(2.5px) translateY(-4px);}
+	84%{transform: translateX(0.2px) translateY(-3px);}
+	100%{transform: translateX(0) translateY(0);}
+}
+
+#cab{
+	animation: cab var(--Anim) linear infinite;
+	transform-origin: center right;
+	transform-box:fill-box;
+}
+
+@keyframes cab{
+	50%{transform: translateX(0) translateY(0);}
+	67%{transform: translateX(1.0px) translateY(-0.75px);}
+	84%{transform: translateX(0.5px) translateY(-0.5px);}
+	100%{transform: translateX(0) translateY(0);}
+}
+
+svg{
+	animation: svg 8s linear infinite;
+}
+
+@keyframes svg{
+	0%{transform: translateX(0);}
+	5%{transform: translateX(0);}
+	10%{transform: translateX(5px);}
+	15%{transform: translateX(5px);}
+	20%{transform: translateX(10px);}
+	25%{transform: translateX(10px);}
+	30%{transform: translateX(15px);}
+	35%{transform: translateX(15px);}
+	40%{transform: translateX(20px);}
+	45%{transform: translateX(20px);}
+	50%{transform: translateX(25px);}
+	55%{transform: translateX(25px);}
+	60%{transform: translateX(30px);}
+	65%{transform: translateX(30px);}
+	70%{transform: translateX(35px);}
+	75%{transform: translateX(35px);}
+	80%{transform: translateX(40px);}
+	85%{transform: translateX(40px);}
+	90%{transform: translateX(50px);}
+	95%{transform: translateX(50px);}
+}
