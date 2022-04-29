@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Portfolio - Women in Parliament</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src='d3.js'></script>
+		<script src="script.js" defer></script>
+
+		<style type="text/css">
+			header{
+				text-align: center;
+				color: darkgray;
+				font-family: sans-serif;
+			}
+
+			header h4{
+				font-style: italic;
+			}
+
+			#reference{
+				text-align: right;
+				font-style: italic;
+				font-family: sans-serif;
+				margin-right: 20px;
+				color: darkgray;
+			}
+
+
+			#tooltip{
+				border:  solid black 1px;
+				padding: 5px;
+				position: absolute;
+				display: none;
+				background: #F1EEB1;
+				opacity: 0.7;
+			}
+
+
+			.wipVal{
+				font-size: 20px;
+				margin: 0;
+				text-align: center;
+			}
+
+			.ttCountry{
+				margin: 0;
+			}
+
+			.linTot{
+				fill: none;
+				stroke: blue;
+			}
+
+			.linS{
+				fill: none;
+				stroke: red;
+			}
+
+			#control{
+				position: absolute;
+				padding: 2px 20px;
+				width: 150px;
+				text-align: center;
+				box-shadow: 2px 2px 3px black;
+			}
+
+			svg{
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Mujeres en los parlamentos</h1>
+			<h4>Portfolio de Nicolau Freitas</h4>
+		</header>
+		<section>
+			<div id='control'>
+				<p>Selecciona un año:</p>
+				<select id='yearSel'>
+					<option value = 2000 >2000</option>
+					<option value = 2005 >2005</option>
+					<option value = 2010 >2010</option>
+					<option value = 2015 >2015</option>
+					<option value = 2017 >2017</option>
+					<option value = 2018 >2018</option>
+					<option value = 2019 >2019</option>
+					<option value = 2020 >2020</option>
+					<option value = 2021 >2021</option>
+				</select>
+				
+			</div>
+			<div id='viz'>
+				<div id='mapa'>
+					<svg id='map'></svg>
+					<div id='tooltip'>
+						<h4 class="ttCountry"></h4>
+						<p class='wipVal'></p>
+					</div>				
+				</div>
+				<div id='linea'>
+					<svg id='line'></svg>						
+				</div>
+			</div>
+			<h4 id='reference'>Datos retirados de página de las Naciones Unidas</h4>
+		</section>
+		
+	</body>
+</html>
