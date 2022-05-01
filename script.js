@@ -311,11 +311,6 @@ function DrawMap(){
 		.attr('y', 220)
 		.attr('fill', 'gray')
 
-	colLeg.append('text')
-		.attr('x', 25)
-		.attr('y', 235)
-		.text('No definido')
-
 
 	let LegTJoin = colLeg.selectAll('text').data(keyList)
 
@@ -323,6 +318,11 @@ function DrawMap(){
 		.attr('x', 25)
 		.attr('y', d=>{return legScale(d.position) + 5})
 		.text(d=>{return d.name})
+
+	colLeg.append('text')
+		.attr('x', 25)
+		.attr('y', 235)
+		.text('No definido')
 
 
 
