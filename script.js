@@ -1,3 +1,5 @@
+
+//                       -------------                loading data ---------- start
 let store = {}
 
     function loadData() {
@@ -10,10 +12,10 @@ let store = {}
             return store;
         })
     }
+//                       -------------                loading data ---------- end
 
+//                       -------------                getting general info ---------- start
 let telaWidth = document.documentElement.clientWidth;
-
-//   ----   coger info del selector de año
 
 let selectedYear = document.getElementById('yearSel')
 
@@ -23,9 +25,14 @@ window.onscroll = function(){
 	scrY = this.scrollY
 }
 
-selectedYear.onclick = function(){
+/*selectedYear.onclick = function(){
 	draw()
-}
+}*/
+//                       -------------                getting general info ---------- end
+
+//                       -------------                filtering data ---------- start
+
+let selectedCountry = 0
 
 let worldValue = 0
 let wipYear = {}
@@ -35,6 +42,8 @@ let incA = 0
 let incB = 0
 let totD = 0
 
+let SelYear = 2021
+
 function filterData(){
 
 	let TotRows = store.wip.filter(function(d){
@@ -42,13 +51,13 @@ function filterData(){
 	});
 
 	let SYear = TotRows.filter(function(d){
-		return d.Year == selectedYear.value
+		return d.Year == SelYear
 	})
 
 	worldValue = Number(SYear[0]['Value'])
 
 	wipYear = store.wip.filter(function(d){
-		return d.Year == selectedYear.value
+		return d.Year == SelYear
 	})
 
 	minValue = d3.min(wipYear, d =>{
@@ -67,13 +76,9 @@ function filterData(){
 	})
 
 }
+//                       -------------                filtering data ---------- end
 
-// draw linechart
-
-let selectedCountry = 0
-
-
-// tooltip function
+//                       -------------                tootl tip ---------- start
 
 function showTooltip(value, country, position){
 	let tt =d3.select('#tooltip')
@@ -88,11 +93,9 @@ function showTooltip(value, country, position){
 		tt.select('p').text('-')
 	}
 }
+//                       -------------                tootl tip ---------- end
 
-
-//   -----   Configuraciones del mapa
-
-
+//                       -------------                map settings ---------- start
 
 let Mwidth = telaWidth -100
 let Mheight = telaWidth*0.4
@@ -104,12 +107,9 @@ Mcont.attr('width', Mwidth).attr('height', Mheight)
 let proj = d3.geoNaturalEarth1()
 proj.scale(telaWidth/7).translate([Mwidth/2 -80, Mheight/2 + 0.075*Mheight])
 
+//                       -------------                map settings ---------- end
 
-//   -----   Function to get value from dataset based on country
-
-
-
-//   ----   Dibujar mapa
+//                       -------------                map drawing ---------- start
 
 function DrawMap(){
 	let path = d3.geoPath(proj)
@@ -121,6 +121,13 @@ function DrawMap(){
 	let colorScale = d3.scaleLinear()
 		.domain(colDom)
 		.range(['#543005','#8c510a','#bf812d','#dfc27d','#f6e8c3','#f5f5f5','#c7eae5','#80cdc1','#35978f','#01665e','#003c30'])
+
+	function color(d){
+		if(d){
+		return colorScale(d)}else{
+			return 'gray'
+		}
+	}
 
 
 	function getValue(country){
@@ -142,7 +149,7 @@ function DrawMap(){
 					d3.select(this).attr('stroke-width', 3)
 				})
 		.attr('fill', function(d){
-			return colorScale(getValue(d.properties.name))
+			return color(getValue(d.properties.name))
 		})
 		.on('click', d=>{
 			drawLC(d.properties.name)
@@ -154,8 +161,70 @@ function DrawMap(){
 		})
 
 	mJoin.attr('fill', function(d){
-			return colorScale(getValue(d.properties.name))
+			return color(getValue(d.properties.name))
 		})
+
+	//       -------Country selector
+	let CSwidth = Mwidth/2
+
+
+	let cSel = Mcont.append('g')
+		.attr('class', 'countrySelector')
+		.style('transform', `translate(${(Mwidth-CSwidth)/2}px, ${Mheight - 20}px)`)
+
+	let CSScale = d3.scaleLinear()
+		.domain([2000, 2021])
+		.range([0,CSwidth])
+
+	cSel.append('line')
+		.attr('x1', 0)
+		.attr('y1', 5)
+		.attr('x2', CSwidth)
+		.attr('y2', 5)
+		.attr('stroke-width', 2)
+		.attr('stroke', 'black')
+
+	let selList = [2000, 2005, 2010, 2015, 2017, 2018, 2019, 2020, 2021]
+
+	let selJoin = cSel.selectAll('rect').data(selList)
+
+	selJoin.enter()
+		.append('rect')
+		.attr('width', 10)
+		.attr('height', 10)
+		.attr('x', d=> CSScale(d)-2.5)
+		.attr('stroke', 'black')
+		.attr('stroke-width', 2)
+		.attr('fill', 'white')
+		.on('mouseenter', function(){
+			d3.select(this)
+				.attr('stroke-width', 3)
+		})
+		.on('mouseleave', function(){
+			d3.select(this)
+				.attr('stroke-width', 2)
+		})
+		.on('click', d=>{
+			SelYear = d
+			filterData()
+			DrawMap()
+		}).merge(selJoin).attr('fill', d=> (SelYear == d)?'blue':'white')
+
+	let selJoinT = cSel.selectAll('text').data(selList)
+
+	selJoinT.enter()
+		.append('text')
+		.text(d => d)
+		.attr('x', 5)
+		.attr('y', d=> CSScale(d)+8)
+		.style('transform', 'rotate(-90deg')
+
+
+
+
+
+
+	//     -----------legend--------
 
 	d3.select('.legGroup').remove()
 
@@ -167,7 +236,7 @@ function DrawMap(){
 		.domain([maxValue, 0])
 		.range([0, 200])
 
-	// ----------gradients -----------
+	// ----------gradient -----------
 
 
 	let linGTot = colLeg.append('defs').append('linearGradient')
@@ -236,6 +305,18 @@ function DrawMap(){
 		.attr('height', 200)
 		.attr('fill', 'url(#gradT')
 
+	colLeg.append('rect')
+		.attr('width', 20)
+		.attr('height', 20)
+		.attr('y', 220)
+		.attr('fill', 'gray')
+
+	colLeg.append('text')
+		.attr('x', 25)
+		.attr('y', 235)
+		.text('No definido')
+
+
 	let LegTJoin = colLeg.selectAll('text').data(keyList)
 
 	LegTJoin.enter().append('text')
@@ -251,17 +332,18 @@ function drawLC(country){
 	let cdf = store.wip.filter(d=>{
 			return d.Region == country})
 
+	cdf.sort(function(a, b){
+		return d3.ascending(
+			a.Year,
+			b.Year)
+	})
 
 	d3.select('.lineG').remove()
-
-
 
 	lineChart = d3.select('#line')
 	lineChart.attr('width', Mwidth).attr('height', Lheight)
 
 	let Chart = lineChart.append('g').attr('class', 'lineG')
-
-
 
 	let GMargin = {
 		top: 20,
@@ -270,11 +352,8 @@ function drawLC(country){
 		right: 200
 	}
 
-
-
 	let bodyWidth =Mwidth - GMargin.left - GMargin.right
 	let bodyHeigth = Lheight - GMargin.top - GMargin.bottom
-
 
 	let maxY1 = d3.max(totD, d=>{return +d.Value})
 	let maxY2 = d3.max(cdf, d=>{return +d.Value})
@@ -284,7 +363,6 @@ function drawLC(country){
 	if(maxY2){
 		if(maxY1>maxY2){maxY=maxY1}else{maxY=maxY2};
 	}else{maxY=maxY1}
-
 
 	let xScale = d3.scaleTime()
 		.range([0, bodyWidth])

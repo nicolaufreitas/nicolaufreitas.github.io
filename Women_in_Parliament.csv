@@ -391,15 +391,15 @@
 640,Cyprus,2019,17.9
 641,Cyprus,2020,19.6
 642,Cyprus,2021,21.4
-643,Czechia,2000,15.0
-644,Czechia,2005,17.0
-645,Czechia,2010,15.5
-646,Czechia,2015,19.0
-647,Czechia,2017,20.0
-648,Czechia,2018,22.0
-649,Czechia,2019,22.5
-650,Czechia,2020,22.5
-651,Czechia,2021,23.0
+643,Czech Republic,2000,15.0
+644,Czech Republic,2005,17.0
+645,Czech Republic,2010,15.5
+646,Czech Republic,2015,19.0
+647,Czech Republic,2017,20.0
+648,Czech Republic,2018,22.0
+649,Czech Republic,2019,22.5
+650,Czech Republic,2020,22.5
+651,Czech Republic,2021,23.0
 652,North Korea,2000,20.1
 653,North Korea,2005,20.1
 654,North Korea,2010,15.6
@@ -1108,15 +1108,15 @@
 1357,Nigeria,2019,5.6
 1358,Nigeria,2020,3.4
 1359,Nigeria,2021,3.6
-1360,North Macedonia,2000,7.5
-1361,North Macedonia,2005,19.2
-1362,North Macedonia,2010,32.5
-1363,North Macedonia,2015,33.3
-1364,North Macedonia,2017,31.7
-1365,North Macedonia,2018,37.5
-1366,North Macedonia,2019,38.3
-1367,North Macedonia,2020,40.0
-1368,North Macedonia,2021,39.2
+1360,Macedonia,2000,7.5
+1361,Macedonia,2005,19.2
+1362,Macedonia,2010,32.5
+1363,Macedonia,2015,33.3
+1364,Macedonia,2017,31.7
+1365,Macedonia,2018,37.5
+1366,Macedonia,2019,38.3
+1367,Macedonia,2020,40.0
+1368,Macedonia,2021,39.2
 1369,Norway,2000,36.4
 1370,Norway,2005,38.2
 1371,Norway,2010,39.6
@@ -1230,15 +1230,15 @@
 1479,South Korea,2019,17.1
 1480,South Korea,2020,17.3
 1481,South Korea,2021,19.0
-1482,Republic of Moldova,2000,8.9
-1483,Republic of Moldova,2005,15.8
-1484,Republic of Moldova,2010,23.8
-1485,Republic of Moldova,2015,20.8
-1486,Republic of Moldova,2017,22.8
-1487,Republic of Moldova,2018,22.8
-1488,Republic of Moldova,2019,22.8
-1489,Republic of Moldova,2020,24.8
-1490,Republic of Moldova,2021,24.8
+1482,Moldova,2000,8.9
+1483,Moldova,2005,15.8
+1484,Moldova,2010,23.8
+1485,Moldova,2015,20.8
+1486,Moldova,2017,22.8
+1487,Moldova,2018,22.8
+1488,Moldova,2019,22.8
+1489,Moldova,2020,24.8
+1490,Moldova,2021,24.8
 1491,Romania,2000,7.3
 1492,Romania,2005,11.4
 1493,Romania,2010,11.4
@@ -1337,13 +1337,13 @@
 1586,Senegal,2019,41.8
 1587,Senegal,2020,43.0
 1588,Senegal,2021,43.0
-1589,Serbia,2010,21.6
-1590,Serbia,2015,34.0
-1591,Serbia,2017,34.4
-1592,Serbia,2018,34.4
-1593,Serbia,2019,37.7
-1594,Serbia,2020,37.7
-1595,Serbia,2021,39.2
+1589,Republic of Serbia,2010,21.6
+1590,Republic of Serbia,2015,34.0
+1591,Republic of Serbia,2017,34.4
+1592,Republic of Serbia,2018,34.4
+1593,Republic of Serbia,2019,37.7
+1594,Republic of Serbia,2020,37.7
+1595,Republic of Serbia,2021,39.2
 1596,Serbia and Monten. [former],2000,5.1
 1597,Serbia and Monten. [former],2005,7.9
 1598,Seychelles,2000,23.5
