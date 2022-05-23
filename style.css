@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+}
+
+header{
+	padding: 20px 0;
+	text-align: center;
+	color: darkgray;
+	font-family: sans-serif;
+}
+
+header h4{
+	font-style: italic;
+}
+
+section{
+	display: flex;
+	justify-content: space-around;
+}
+
+.linLinks{
+	fill: none;
+}
+
+#tt01, #tt02{
+	border:  solid black 1px;
+	padding: 5px;
+	position: absolute;
+	display: none;
+	background: #F1EEB1;
+	max-width: 300px;
+	opacity: 0.85;
+}
+
+#tt01txt{
+	margin: 0;
+}
+
+#filosofo, #fechas, #add{
+	margin: 0;
+	text-align: center;
+}
+
+.reference{
+	font-family: sans-serif;
+	text-align: right;
+	color: darkgray;
+	font-style: italic;
+}
+
+#notaInicial{
+	width: 70%;
+	background: white;
+	opacity: 0.925;
+	position: absolute;
+	border: solid 3px gray;
+	border-radius: 8px;
+	padding: 30px;
+	color: blue;
+	text-align: center;
+}
+
+#notaInicial p{
+	text-align: center;
+	font-family: sans-serif;
+}
+
+#entendido{
+	padding: 5px;
+	background: blue;
+	color: white;
+	border: outset 3px blue;
+}
+
+#section{
+	position: relative;
+}
+
+#entendido:hover{
+	box-shadow: 2px 2px 8px black;
+}
